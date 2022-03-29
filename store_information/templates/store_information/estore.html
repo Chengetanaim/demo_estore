@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+</head>
+{% extends 'store_information/base.html' %}
+<body>
+{% block conntent %}
+    <p><a href="{% url 'store_information:create_estore' %}">Create Estore</a></p>
+    <p><a href="{% url 'store_information:item_estore' %}">Upload on estore</a></p>
+    <p><a href="{% url 'store_information:about_estore' %}">About estore</a></p>
+    <p><a href="{% url 'store_information:estores' %}">Estores</a></p>
+    <br>
+    {% for item in contents %}
+        <br>
+        <br>
+
+        <li> {{ item.product_name }}</li>
+        <li>{{ item.price }}</li>
+        <li><img src="{{ item.profile_pic.url }}" width="50" height="50"></li>
+
+
+    {% empty %}
+        <li>No items have been added yet.</li>
+    {% endfor %}
+
+
+{% endblock conntent %}
+</body>
+</html>

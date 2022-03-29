@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Your product </title>
+</head>
+{% extends 'store_information/base.html' %}
+{% load static %}
+<body>
+{% block conntent %}
+        <form method="post" action="{% url 'store_information:sell_product' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add</button>
+        </form>
+{% endblock %}
+
+</body>
+</html>
+
+
+
+
